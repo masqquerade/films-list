@@ -1,10 +1,15 @@
 import express from 'express';
-import mongoose, { mongo } from 'mongoose';
+import mongoose from 'mongoose';
+
+import router from './router';
 
 import { config } from 'dotenv';
 config();
 
 const app: express.Application = express();
+
+app.use(express.json());
+app.use('/api', router);
 
 const start = async (): Promise<void> => {
     await mongoose.connect(process.env.DB_URL as string);
