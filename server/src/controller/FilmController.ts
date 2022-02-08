@@ -22,5 +22,10 @@ export default class FilmController {
         const { data } = req.body;
         await FilmService.changeFilmData(_id, data);
         return res.json('Succesfully completed.').status(200);
-        };
     };
+
+    static async fetchAllFilms(req: Request, res: Response): Promise<Response> {
+        const data: Array<FilmData> = await FilmService.fetchAllFilms();
+        return res.send(data).status(200);
+    };
+};

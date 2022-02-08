@@ -12,4 +12,6 @@ router.post(RouterWays.createFilmItemUrl, validateIncomeData, FilmController.cre
 router.delete(RouterWays.removeFilmItem, validateIdData, FilmController.deleteFilmItem);
 router.put(RouterWays.changeFilmData, validateIdData, validateUpdateData, FilmController.changeFilmData);
 
+router.get(RouterWays.fetchAllFilmsUrl, FilmController.fetchAllFilms);
+
 export default router;
