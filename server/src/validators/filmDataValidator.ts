@@ -20,3 +20,14 @@ export const validateIdData = async (req: Request, res: Response, next: NextFunc
         throw e;
     };
 };
+
+export const validateUpdateData = (req: Request, res: Response, next: NextFunction): void | Response => {
+    try {
+        const { data } = req.body;
+        if (!data) return res.json('There is no data.').status(403);
+
+        next();
+    } catch (e) {
+        throw e;
+    };
+};

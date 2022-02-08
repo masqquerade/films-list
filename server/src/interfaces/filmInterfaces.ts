@@ -1,5 +1,7 @@
-export interface FilmData {
-    title: string;
-    body: string;
-    logo: string
+import { Id } from '../types/filmTypes';
+
+export interface FilmData extends Id<String> {
+    title: String;
+    body: String;
+    logo: String
 };

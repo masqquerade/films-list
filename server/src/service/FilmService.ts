@@ -10,4 +10,8 @@ export default class FildService {
     static async deleteFilmItem(_id: String): Promise<void> {
         await Film.deleteOne({ _id });
     };
+
+    static async changeFilmData(_id: String, data: Object): Promise<void> {
+        await Film.updateOne({ _id }, { '$set': { ...data } });
+    };
 };
