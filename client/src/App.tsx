@@ -1,11 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Routes, Route } from 'react-router-dom';
+import './index.css';
 
-function App() {
+import Main from './pages/Main/Main';
+
+const App: React.FC = () => {
   return (
-    <div>
-
-    </div>
+    <Routes>
+      <Route path='/' element={<Main />} />
+    </Routes>
   );
-}
+};
 
 export default App;

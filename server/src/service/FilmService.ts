@@ -1,10 +1,15 @@
 import Film from '../models/Film';
+import { Request } from 'express';
 
 import { FilmData } from '../interfaces/filmInterfaces';
 
 export default class FildService {
-    static async createFilmItem(data: FilmData): Promise<void> {
+    static async createFilmItem(req: Request): Promise<void> {
         try {
+            const data: FilmData = {
+                ...req.body,
+                logo: req.file?.path
+            };
             await Film.create(data);
         } catch (e) {
             throw e;
