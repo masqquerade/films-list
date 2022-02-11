@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 
-export const FilmWrapper = styled.div`
+export const FilmWrapper = styled.div<{ margin: string }>`
     display: flex;
+    margin: ${props => props.margin };
     width: 40vw;
     height: 35vh;
     background: #292929;

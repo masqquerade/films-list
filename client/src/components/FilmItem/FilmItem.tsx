@@ -1,12 +1,14 @@
 import React from 'react';
 
 import { FilmWrapper, FilmItemsWrapper, FilmBtnWrapper } from './styles';
-import FilmItemBtn from '../UI/WatchBtn/FilmItemBtn';
+import FilmItemBtn from '../UI/FilmItemBtn/FilmItemBtn';
 import { IFilmData } from '../../interfaces';
 
-const FilmItem: React.FC<IFilmData> = ({ title, body, logo, iviLink, reviewsLink }) => {
+const FilmItem: React.FC<IFilmData> = ({ title, body, logo, iviLink, reviewsLink, itemMargin }) => {
     return (
-        <FilmWrapper>
+        <FilmWrapper
+            margin={itemMargin as string}
+        >
             <img src={`http://localhost:5000/${logo}`} />
 
             <FilmItemsWrapper>

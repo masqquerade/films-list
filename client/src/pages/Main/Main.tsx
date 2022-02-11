@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from 'react';
-import { useCreateFilmItem } from '../../hooks/filmData';
+import React from 'react';
 
 import Navbar from '../../components/Navbar/Navbar';
 import FilmsList from '../../components/FilmsList/FilmsList';
