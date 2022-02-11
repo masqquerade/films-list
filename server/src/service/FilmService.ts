@@ -6,10 +6,13 @@ import { FilmData } from '../interfaces/filmInterfaces';
 export default class FildService {
     static async createFilmItem(req: Request): Promise<void> {
         try {
-            const data: FilmData = {
-                ...req.body,
-                logo: req.file?.path
-            };
+            const data = {
+                title: req.body.title,
+                body: req.body.body,
+                logo: req.file?.path,
+                iviLink: req.body.iviLink,
+                reviewsLink: req.body.reviewsLink
+            }
             await Film.create(data);
         } catch (e) {
             throw e;

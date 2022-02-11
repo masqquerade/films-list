@@ -1,17 +1,20 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useCreateFilmItem } from '../../hooks/filmData';
 
 import Navbar from '../../components/Navbar/Navbar';
-import FilmItem from '../../components/FilmItem/FilmItem';
+import FilmsList from '../../components/FilmsList/FilmsList';
 
-import Background from '../../components/Background/Background';
+import { Wrapper } from '../../styles/PageWrapper';
+import { FilmsWrapper } from './styles';
 
 const Main: React.FC = () => {
     return (
-        <div>
-            <Background />
+        <Wrapper>
             <Navbar />
-            <FilmItem />
-        </div>
+            <FilmsWrapper>
+                <FilmsList />
+            </FilmsWrapper>
+        </Wrapper>
     );
 };
 

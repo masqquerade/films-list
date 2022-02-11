@@ -28,8 +28,14 @@ const Navbar: React.FC = () => {
         <NavbarWrapper>
             <NavbarContent>
                 {
-                    buttons.map(el => {
-                        return <Link to={el.url}>{el.label}</Link>
+                    buttons.map((el, idx) => {
+                        return (
+                            <Link 
+                                to={el.url} 
+                                key={idx}
+                                >{el.label}
+                            </Link>
+                        );
                     })
                 }
             </NavbarContent>
