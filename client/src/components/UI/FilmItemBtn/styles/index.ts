@@ -12,4 +12,8 @@ export const BtnWrapper = styled.div`
     border-radius: 3px;
     width: 6vw;
     height: 3vh;
+
+    &:hover {
+        cursor: crosshair;
+    };
 `;
