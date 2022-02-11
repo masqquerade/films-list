@@ -7,6 +7,7 @@ export const FilmWrapper = styled.div<{ margin: string }>`
     height: 35vh;
     background: #292929;
     border: 1px solid #383838;
+    margin-top: 1vh;
 `;
 
 export const FilmItemsWrapper = styled.div`
@@ -14,7 +15,13 @@ export const FilmItemsWrapper = styled.div`
     flex-direction: column;
     width: 25vw;
     word-break: break-all;
+`;
 
+export const FilmTextWrapper = styled.div`
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    
     h2 {
         font-family: Montserrat;
         font-weight: bolder;
@@ -29,12 +36,10 @@ export const FilmItemsWrapper = styled.div`
         color: white;
         margin: 0.5vh 0 0 1vw;
     };
-`;
+`
 
 export const FilmBtnWrapper = styled.div`
     display: flex;
-
-    div {
-        margin: 12vh 0 0 1vw;
-    }
-`
+    margin-left: 1vw;
+    margin-bottom: 1vh;
+`;

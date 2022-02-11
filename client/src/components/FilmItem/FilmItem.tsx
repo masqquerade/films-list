@@ -1,19 +1,27 @@
 import React from 'react';
 
-import { FilmWrapper, FilmItemsWrapper, FilmBtnWrapper } from './styles';
+import { FilmWrapper, FilmItemsWrapper, FilmBtnWrapper, FilmTextWrapper } from './styles';
 import FilmItemBtn from '../UI/FilmItemBtn/FilmItemBtn';
 import { IFilmData } from '../../interfaces';
+import FilmNotFound from '../FilmNotFound/FilmNotFound';
 
 const FilmItem: React.FC<IFilmData> = ({ title, body, logo, iviLink, reviewsLink, itemMargin }) => {
     return (
         <FilmWrapper
             margin={itemMargin as string}
         >
-            <img src={`http://localhost:5000/${logo}`} />
+            {
+                logo
+                    ? <img src={`http://localhost:5000/${logo}`} />
+                    : <FilmNotFound label='Не найдено.' />
+
+            }
 
             <FilmItemsWrapper>
-                <h2>{title}</h2>
-                <h4>{body}</h4>
+                <FilmTextWrapper>
+                    <h2>{title}</h2>
+                    <h4>{body}</h4>
+                </FilmTextWrapper>
 
                 <FilmBtnWrapper>
                     <FilmItemBtn title={'Смотреть'} link={iviLink} />
