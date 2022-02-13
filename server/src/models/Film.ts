@@ -5,7 +5,9 @@ const Film = new Schema({
     body: { type: String, required: true },
     logo: { type: String },
     iviLink: String,
-    reviewsLink: String
+    reviewsLink: String,
+    rating: Number,
+    realeseDate: Number
 });
 
 export default model('Film', Film);

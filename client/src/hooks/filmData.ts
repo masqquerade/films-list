@@ -1,11 +1,11 @@
-import { useEffect, useState, useCallback } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import axios from 'axios';
 
 import { IFilmData } from '../interfaces/index';
 
 axios.defaults.baseURL = 'http://localhost:5000/';
 
-export const useFetchFilmsData = (): IFilmData[] | undefined => {
+export const useFetchFilmsData = () => {
     const [films, setFilms] = useState<IFilmData[]>();
 
     const fetchData = useCallback(async (): Promise<void> => {
@@ -15,9 +15,9 @@ export const useFetchFilmsData = (): IFilmData[] | undefined => {
 
     useEffect(() => {
         fetchData();
-    }, [fetchData]);
+    }, []);
 
-    return films;
+    return { films, setFilms };
 };
 
 export const useCreateFilmItem = ({ title, body, logo, iviLink, reviewsLink }: IFilmData): any => {

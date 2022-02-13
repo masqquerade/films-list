@@ -13,8 +13,7 @@ const FilmItem: React.FC<IFilmData> = ({ title, body, logo, iviLink, reviewsLink
             {
                 logo
                     ? <img src={`http://localhost:5000/${logo}`} />
-                    : <FilmNotFound label='Не найдено.' />
-
+                    : <FilmNotFound label='Фото не найдено.' />
             }
 
             <FilmItemsWrapper>
