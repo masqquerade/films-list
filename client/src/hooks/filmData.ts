@@ -20,7 +20,7 @@ export const useFetchFilmsData = () => {
     return { films, setFilms };
 };
 
-export const useCreateFilmItem = ({ title, body, logo, iviLink, reviewsLink }: IFilmData): any => {
+export const useCreateFilmItem = ({ title, body, logo, iviLink, reviewsLink, fullSizeLogo }: IFilmData): any => {
     const createFilmItem = useCallback(async (): Promise<void> => {
         const file = new FormData();
 
@@ -29,6 +29,7 @@ export const useCreateFilmItem = ({ title, body, logo, iviLink, reviewsLink }: I
         file.append('logo', logo);
         file.append('iviLink', iviLink);
         file.append('reviewsLink', reviewsLink);
+        file.append('fullSizeLogo', fullSizeLogo);
 
         await axios.post('api/create-film-item', file, {
             headers: {
@@ -38,4 +39,23 @@ export const useCreateFilmItem = ({ title, body, logo, iviLink, reviewsLink }: I
     }, []);
 
     return createFilmItem;
+};
+
+export const useFetchFilmData = (_id: string) => {
+    const [film, setFilm] = useState<IFilmData>();
+
+    const fetchData = useCallback(async () => {
+        await axios.get('api/fetch-film-data', {
+            headers: {
+                '_id': _id
+            }
+        })
+            .then((res) => setFilm(res.data));
+    }, []);
+
+    useEffect(() => {
+        fetchData();
+    }, []);
+
+    return film;
 };

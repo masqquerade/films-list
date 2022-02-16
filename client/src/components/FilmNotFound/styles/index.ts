@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 
 export const NotFoundWrapper = styled.div`
-    width: 23.8vh;
+    width: 11.2vw;
+    height:  31vh;
     background: #828282;
     display: flex;
     justify-content: center;

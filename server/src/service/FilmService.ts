@@ -42,4 +42,12 @@ export default class FildService {
             throw e;
         };
     };
+
+    static async fetchFilmData(_id: string | string[] | undefined): Promise<FilmData | undefined | null> {
+        try {
+            return Film.findById({ _id });
+        } catch (e) {
+            console.log(e);
+        };
+    };
 };

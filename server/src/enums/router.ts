@@ -3,5 +3,9 @@ export enum RouterWays {
     removeFilmItem = '/remove-film-item',
     changeFilmData = '/change-film-data',
 
-    fetchAllFilmsUrl = '/fetch-all-films'
+    fetchAllFilmsUrl = '/fetch-all-films',
+    fetchFilmDataUrl = '/fetch-film-data',
+
+    createCommentUrl = '/create-comment',
+    fetchAllCommentsUrl = '/fetch-all-comments'
 };

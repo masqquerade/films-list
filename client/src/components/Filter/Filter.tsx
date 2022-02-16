@@ -25,7 +25,7 @@ const Filter: React.FC<IFilter> = ({ films, setFilms }) => {
         },
         {
             value: 'realeseDate',
-            name: 'По дате выхода'
+            name: 'По году выхода'
         },
     ])
 

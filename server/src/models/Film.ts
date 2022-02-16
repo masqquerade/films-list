@@ -7,7 +7,9 @@ const Film = new Schema({
     iviLink: String,
     reviewsLink: String,
     rating: Number,
-    realeseDate: Number
+    realeseDate: Number,
+    genre: String,
+    fullSizeLogo: String
 });
 
 export default model('Film', Film);

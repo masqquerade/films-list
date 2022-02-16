@@ -28,4 +28,10 @@ export default class FilmController {
         const data: Array<FilmData> = await FilmService.fetchAllFilms();
         return res.send(data).status(200);
     };
+
+    static async fetchFilmData(req: Request, res: Response): Promise<Response> {
+        const _id = req.headers._id;
+        const data: FilmData | undefined | null = await FilmService.fetchFilmData(_id);
+        return res.send(data).status(200);
+    };
 };

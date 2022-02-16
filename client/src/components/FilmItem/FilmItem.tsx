@@ -1,33 +1,41 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
-import { FilmWrapper, FilmItemsWrapper, FilmBtnWrapper, FilmTextWrapper } from './styles';
-import FilmItemBtn from '../UI/FilmItemBtn/FilmItemBtn';
+import { FilmTextWrapper, FilmWrapper } from './styles';
 import { IFilmData } from '../../interfaces';
 import FilmNotFound from '../FilmNotFound/FilmNotFound';
 
-const FilmItem: React.FC<IFilmData> = ({ title, body, logo, iviLink, reviewsLink, itemMargin }) => {
+const FilmItem: React.FC<IFilmData> = ({ title, body, logo, iviLink, reviewsLink, genre, filmMargin }) => {
     return (
-        <FilmWrapper
-            margin={itemMargin as string}
-        >
-            {
-                logo
-                    ? <img src={`http://localhost:5000/${logo}`} />
-                    : <FilmNotFound label='Фото не найдено.' />
-            }
+        <Link to={'a'}>
+            <FilmWrapper
+                margin={filmMargin}
+            >
+                {
+                    logo
+                        ? <img
+                            src={`http://localhost:5000/${logo}`}
+                        />
 
-            <FilmItemsWrapper>
+                        : <FilmNotFound
+                            label='Фото не найдено.'
+                        />
+                }
+
                 <FilmTextWrapper>
-                    <h2>{title}</h2>
-                    <h4>{body}</h4>
+                    {
+                        title
+                            ? <h3>{title}</h3>
+                            : <h3>Не найдено.</h3>
+                    }
+                    {
+                        genre
+                            ? <h4>{genre}</h4>
+                            : <h4>Не найдено.</h4>
+                    }
                 </FilmTextWrapper>
-
-                <FilmBtnWrapper>
-                    <FilmItemBtn title={'Смотреть'} link={iviLink} />
-                    <FilmItemBtn title={'Рецензии'} link={reviewsLink} />
-                </FilmBtnWrapper>
-            </FilmItemsWrapper>
-        </FilmWrapper>
+            </FilmWrapper>
+        </Link>
     );
 };
 
