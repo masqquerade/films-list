@@ -2,6 +2,8 @@ import React from 'react';
 
 import { ContentWrapper, TextWrapper } from './styles/index';
 
+import Reviews from '../Reviews/Reviews';
+
 interface IFilmContent {
     title: string;
     body: string;
@@ -10,14 +12,18 @@ interface IFilmContent {
 
 const FilmContent: React.FC<IFilmContent> = ({ title, body, fullSizeLogo }) => {
     return (
-        <ContentWrapper>
-            <img src={`http://localhost:5000/${fullSizeLogo}`} />
+        <div>
+            <ContentWrapper>
+                <img src={`http://localhost:5000/${fullSizeLogo}`} />
 
-            <TextWrapper>
-                <h1>{title}</h1>
-                <h4>{body}</h4>
-            </TextWrapper>
-        </ContentWrapper>
+                <TextWrapper>
+                    <h1>{title}</h1>
+                    <h4>{body}</h4>
+                </TextWrapper>
+            </ContentWrapper>
+
+            <Reviews />
+        </div>
     );
 };
 
