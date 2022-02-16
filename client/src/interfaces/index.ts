@@ -12,3 +12,9 @@ export interface IFilmData {
     itemMargin?: string;
     sort?: any;
 };
+
+export interface ICommentData {
+    filmId: string;
+    owner: string;
+    body: string;
+};

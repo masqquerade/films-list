@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useCallback } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import axios from 'axios';
 
 import { IFilmData } from '../interfaces/index';
@@ -10,7 +10,7 @@ export const useFetchFilmsData = () => {
 
     const fetchData = useCallback(async (): Promise<void> => {
         await axios.get('api/fetch-all-films')
-            .then((res) => setFilms(res.data));
+            .then(res => setFilms(res.data));
     }, []);
 
     useEffect(() => {
@@ -50,7 +50,7 @@ export const useFetchFilmData = (_id: string) => {
                 '_id': _id
             }
         })
-            .then((res) => setFilm(res.data));
+            .then(res => setFilm(res.data));
     }, []);
 
     useEffect(() => {
