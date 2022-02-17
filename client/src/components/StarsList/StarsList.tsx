@@ -6,34 +6,39 @@ const StarsList: React.FC = () => {
     const [stars, setStars] = useState([
         {
             isOn: false,
+            isFixed: false
         },
         {
             isOn: false,
+            isFixed: false
         },
         {
             isOn: false,
+            isFixed: false
         },
         {
             isOn: false,
+            isFixed: false
         },
         {
             isOn: false,
+            isFixed: false
         }
     ]);
 
     const onStarOver = (idx: number, elem: any) => {
         setStars(() => {
-            const arr = stars.map((el, index) => {
-                if (idx === index)  {
+            const arr = stars.map((star, index) => {
+                if (idx === index) {
                     elem.isOn = true;
                     return elem;
                 };
-                return el;
+                return star;
             });
 
-            const activatedZoneArr = arr.map((el, index) => {
-                if (index < idx && !el.isOn) el.isOn = true;
-                return el;
+            const activatedZoneArr = arr.map((star, index) => {
+                if (index < idx && !star.isOn) star.isOn = true;
+                return star;
             });
 
             return activatedZoneArr;
@@ -42,11 +47,29 @@ const StarsList: React.FC = () => {
 
     const onStarOut = () => {
         setStars(() => {
-            return stars.map(el => {
-                el.isOn = false;
-                return el;
+            return stars.map(star => {
+                if (!star.isFixed) {
+                    star.isOn = false;
+                }
+                return star;
             })
         })
+    };
+
+    const onStarClick = (idx: number) => {
+        setStars(() => {
+            const clearedArr = stars.map(star => {
+                if (star.isFixed) {
+                    star.isFixed = false
+                }
+                return star;
+            });
+
+            return clearedArr.map((star, index) => {
+                if (index <= idx && !star.isFixed) star.isFixed = true;
+                return star;
+            })
+        });
     };
 
     return (
@@ -57,6 +80,7 @@ const StarsList: React.FC = () => {
                         <div
                             onMouseOver={() => onStarOver(index, el)}
                             onMouseOut={onStarOut}
+                            onClick={() => onStarClick(index)}
                             style={{ maxWidth: '1vw' }}
                         >
                             <Star
