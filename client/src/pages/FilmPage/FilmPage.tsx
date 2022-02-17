@@ -6,6 +6,8 @@ import Navbar from '../../components/Navbar/Navbar';
 
 import FilmContent from '../../components/FilmContent/FilmContent';
 
+import StarsList from '../../components/StarsList/StarsList';
+
 const FilmPage: React.FC = () => {
     const { id } = useParams();
     const film = useFetchFilmData(id!);
@@ -18,6 +20,7 @@ const FilmPage: React.FC = () => {
                 body={film?.body!}
                 fullSizeLogo={film?.fullSizeLogo!}
             />
+            <StarsList></StarsList>
         </div>
     );
 };
