@@ -1,14 +1,15 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
 
 import ReviewItem from '../ReviewItem/ReviewItem';
 
-import { useFetchCommentsData } from '../../hooks/commentData';
+import { ICommentData } from '../../interfaces/index';
 
-const Reviews: React.FC = () => {
-    const { id } = useParams();
-    const { comments, setComments } = useFetchCommentsData(id!);
+interface IReviews {
+    comments: ICommentData[];
+    setComments: React.Dispatch<React.SetStateAction<ICommentData[] | undefined>>
+};
 
+const Reviews: React.FC<IReviews> = ({ comments, setComments }) => {
     return (
         <div>
             {

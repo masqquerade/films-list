@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useFetchFilmData } from '../../hooks/filmData';
 import { useCreateComment } from '../../hooks/commentData';
@@ -8,6 +8,7 @@ import Navbar from '../../components/Navbar/Navbar';
 import FilmContent from '../../components/FilmContent/FilmContent';
 import CommentInput from '../../components/UI/CommentInput/CommentInput';
 import StarsList from '../../components/StarsList/StarsList';
+import { useFetchCommentsData } from '../../hooks/commentData';
 
 import { ICommentData } from '../../interfaces';
 
@@ -37,18 +38,20 @@ const FilmPage: React.FC = () => {
     ]);
 
     const { id } = useParams();
+    const { comments, setComments } = useFetchCommentsData(id!);
     const film = useFetchFilmData(id!);
 
     const sendComment = (body: any) => {
         const starsCount = stars.filter(el => el.isFixed).length;
-        console.log(starsCount)
         const data: ICommentData = {
             body: body.target.value,
             filmId: id!,
             stars: starsCount
         };
 
-        useCreateComment(data)
+        useCreateComment(data);
+
+        setComments([...comments!, data]);
     };
 
     return (
@@ -58,6 +61,8 @@ const FilmPage: React.FC = () => {
                 title={film?.title!}
                 body={film?.body!}
                 fullSizeLogo={film?.fullSizeLogo!}
+                comments={comments!}
+                setComments={setComments}
             />
             <CommentInput
                 value={inputValue}
