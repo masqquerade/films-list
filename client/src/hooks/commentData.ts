@@ -25,7 +25,5 @@ export const useFetchCommentsData = (_id: string) => {
 };
 
 export const useCreateComment = async (data: ICommentData) => {
-    console.log(data)
     await axios.post('api/create-comment', data);
-    console.log('posted')
 };

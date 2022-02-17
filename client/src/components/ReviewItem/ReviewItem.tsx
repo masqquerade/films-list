@@ -1,18 +1,39 @@
 import React from 'react';
 
-import { ReviewWrapper } from './styles';
+import { ReviewWrapper, LabelTextWrapper, BottomTextWrapper, StarsWrapper } from './styles';
+
+import { Star } from '../../svgs/Star';
 
 interface IReviewItem {
-    label: string;
     body: string;
+    stars: number;
 };
 
-const ReviewItem: React.FC<IReviewItem> = ({ label, body }) => {
+const ReviewItem: React.FC<IReviewItem> = ({ body, stars }) => {
     return (
-        <ReviewWrapper>
-            <h3>{label}</h3>
-            <h4>{body}</h4>
-        </ReviewWrapper>
+        <div>
+            <ReviewWrapper>
+                <LabelTextWrapper>
+                    <h3>Пользователь сайта</h3>
+                    <StarsWrapper>
+                        {
+                            new Array(stars).fill('').map((el, idx) => {
+                                return <Star 
+                                    styles={{ fill: 'yellow' }}
+                                    height={'10'}
+                                    width={'10'} 
+                                    key={idx}
+                                />  
+                            })
+                        }
+                    </StarsWrapper>
+                </LabelTextWrapper>
+
+                <BottomTextWrapper>
+                    <h4>{body}</h4>
+                </BottomTextWrapper>
+            </ReviewWrapper>
+        </div>
     );
 };
 

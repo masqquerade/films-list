@@ -15,8 +15,8 @@ const Reviews: React.FC = () => {
                 comments?.map((comment, index) => {
                     return (
                         <ReviewItem 
-                            label={comment.owner} 
                             body={comment.body}
+                            stars={comment.stars}
                             key={index}
                         />
                     );

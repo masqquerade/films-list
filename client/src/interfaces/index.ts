@@ -16,4 +16,5 @@ export interface IFilmData {
 export interface ICommentData {
     filmId: string;
     body: string;
+    stars: number;
 };

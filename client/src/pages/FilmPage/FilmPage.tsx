@@ -40,9 +40,12 @@ const FilmPage: React.FC = () => {
     const film = useFetchFilmData(id!);
 
     const sendComment = (body: any) => {
+        const starsCount = stars.filter(el => el.isFixed).length;
+        console.log(starsCount)
         const data: ICommentData = {
             body: body.target.value,
-            filmId: id!
+            filmId: id!,
+            stars: starsCount
         };
 
         useCreateComment(data)

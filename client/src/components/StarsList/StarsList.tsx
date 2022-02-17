@@ -71,6 +71,7 @@ const StarsList: React.FC<IStarsList> = ({ stars, setStars }) => {
                             onMouseOut={onStarOut}
                             onClick={() => onStarClick(index)}
                             style={{ maxWidth: '1vw' }}
+                            key={index}
                         >
                             <Star
                                 styles={{ fill: el.isOn ? 'yellow' : '#575757' }}
