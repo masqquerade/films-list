@@ -1,7 +1,5 @@
 import styled from 'styled-components';
 
-export const StarWrapper = styled.div`
-    svg {
-        fill: red;
-    };
-`
+export const StarsWrapper = styled.div`
+    display: flex;
+`;

@@ -4,15 +4,17 @@ type IStar = {
     styles: {
         fill: string;
     };
+    height: string;
+    width: string;
     children?: React.ReactNode;
 };
 
-export const Star: React.FC<IStar> = ({ styles }) => {
+export const Star: React.FC<IStar> = ({ styles, height, width }) => {
     return (
         <svg 
                 xmlns="http://www.w3.org/2000/svg" 
-                width="24" 
-                height="24" 
+                width={width} 
+                height={height}
                 viewBox="0 0 24 24" 
                 style={{...styles}}
             ><path 

@@ -24,10 +24,8 @@ export const useFetchCommentsData = (_id: string) => {
     return { comments, setComments };
 };
 
-export const useCreateComment = (data: ICommentData) => {
-    const createComment = useCallback(async () => {
-        await axios.post('api/create-comment', data);
-    }, []);
-
-    return createComment;
+export const useCreateComment = async (data: ICommentData) => {
+    console.log(data)
+    await axios.post('api/create-comment', data);
+    console.log('posted')
 };

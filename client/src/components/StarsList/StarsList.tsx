@@ -1,31 +1,20 @@
-import React, { useState } from 'react';
+import React, { SetStateAction, useState } from 'react';
+
+import { StarsWrapper } from './styles';
 
 import { Star } from '../../svgs/Star';
 
-const StarsList: React.FC = () => {
-    const [stars, setStars] = useState([
-        {
-            isOn: false,
-            isFixed: false
-        },
-        {
-            isOn: false,
-            isFixed: false
-        },
-        {
-            isOn: false,
-            isFixed: false
-        },
-        {
-            isOn: false,
-            isFixed: false
-        },
-        {
-            isOn: false,
-            isFixed: false
-        }
-    ]);
+type TStar = {
+    isOn: Boolean;
+    isFixed: Boolean;
+};
 
+interface IStarsList {
+    stars: TStar[];
+    setStars: SetStateAction<any>;
+};
+
+const StarsList: React.FC<IStarsList> = ({ stars, setStars }) => {
     const onStarOver = (idx: number, elem: any) => {
         setStars(() => {
             const arr = stars.map((star, index) => {
@@ -73,7 +62,7 @@ const StarsList: React.FC = () => {
     };
 
     return (
-        <div>
+        <StarsWrapper>
             {
                 stars.map((el, index) => {
                     return (
@@ -85,12 +74,14 @@ const StarsList: React.FC = () => {
                         >
                             <Star
                                 styles={{ fill: el.isOn ? 'yellow' : '#575757' }}
+                                height={'20'}
+                                width={'20'}
                             />
                         </div>
                     )
                 })
             }
-        </div>
+        </StarsWrapper>
     );
 };
 
