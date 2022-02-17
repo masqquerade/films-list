@@ -2,11 +2,16 @@ import React from 'react';
 
 import { ReviewWrapper } from './styles';
 
-const ReviewItem: React.FC = () => {
+interface IReviewItem {
+    label: string;
+    body: string;
+};
+
+const ReviewItem: React.FC<IReviewItem> = ({ label, body }) => {
     return (
         <ReviewWrapper>
-            <h3>David</h3>
-            <h4>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Modi corrupti consequatur, dolores fuga nobis nihil excepturi accusamus repudiandae dolorum, aspernatur aliquam architecto placeat odit molestias, sint quasi in repellendus quidem.</h4>
+            <h3>{label}</h3>
+            <h4>{body}</h4>
         </ReviewWrapper>
     );
 };

@@ -11,7 +11,17 @@ const Reviews: React.FC = () => {
 
     return (
         <div>
-            <ReviewItem></ReviewItem>
+            {
+                comments?.map((comment, index) => {
+                    return (
+                        <ReviewItem 
+                            label={comment.owner} 
+                            body={comment.body}
+                            key={index}
+                        />
+                    );
+                })
+            }
         </div>
     );
 };

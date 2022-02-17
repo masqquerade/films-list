@@ -19,14 +19,14 @@ export const useFetchCommentsData = (_id: string) => {
 
     useEffect(() => {
         fetchData();
-    }, [comments]);
+    }, []);
 
     return { comments, setComments };
 };
 
 export const useCreateComment = (data: ICommentData) => {
     const createComment = useCallback(async () => {
-        axios.post('api/create-comment', data);
+        await axios.post('api/create-comment', data);
     }, []);
 
     return createComment;
