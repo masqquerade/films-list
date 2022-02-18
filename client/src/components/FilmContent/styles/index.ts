@@ -33,3 +33,11 @@ export const TextWrapper = styled.div`
         font-weight: 300;
     };
 `;
+
+export const ButtonsWrapper = styled.div`
+    display: flex;
+    width: 15vw;
+    justify-content: space-between;
+    margin-left: 3vw;
+    margin-bottom: 2vh;
+`;

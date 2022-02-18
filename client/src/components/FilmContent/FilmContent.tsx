@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { ContentWrapper, TextWrapper } from './styles/index';
+import { ContentWrapper, TextWrapper, ButtonsWrapper } from './styles/index';
 import FilmItemButton from '../UI/FilmItemBtn/FilmItemBtn';
 
 interface IFilmContent {
@@ -23,15 +23,19 @@ const FilmContent: React.FC<IFilmContent> = ({ title, body, fullSizeLogo, traile
                 </TextWrapper>
 
             </ContentWrapper>
-            <FilmItemButton
-                title={'Трейлер'}
-                link={trailerLink}
-            />
+            
+            <ButtonsWrapper>
+                <FilmItemButton
+                    title={'Трейлер'}
+                    link={trailerLink}
+                />
 
-            <FilmItemButton
-                title={'Смотреть'}
-                link={iviLink}
-            />
+                <FilmItemButton
+                    title={'Смотреть'}
+                    link={iviLink}
+                />
+            </ButtonsWrapper>
+
         </div>
     );
 };
