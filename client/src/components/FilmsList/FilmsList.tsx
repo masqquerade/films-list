@@ -33,6 +33,7 @@ const FilmsList: React.FC = () => {
                                 reviewsLink={el.reviewsLink}
                                 genre={el.genre}
                                 filmMargin={'2vh 1.5vw 1.5vh 0'}
+                                filmId={el._id}
                                 key={index}
                             />
                         })

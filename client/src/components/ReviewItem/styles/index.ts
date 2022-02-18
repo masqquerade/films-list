@@ -6,7 +6,7 @@ export const ReviewWrapper = styled.div`
     min-height: 6vh;
     border-radius: 3px;
     background: #2b2b2b;
-
+    margin-top: 0.5vh;
 `;
 
 export const LabelTextWrapper = styled.div`

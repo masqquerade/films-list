@@ -18,11 +18,16 @@ const CommentInput: React.FC<ICommentInput> = ({ value, onChange, placeholder, s
                     onChange={onChange}
                     placeholder={placeholder}
                 />
-                <div 
+                <div
                     className='svg'
                     onClick={() => sendFunc(value)}
                 >
-                    <SendSvg />
+                    <div
+                    >
+                        <SendSvg
+                            styles={{ fill: 'rgba(158, 155, 155, 1)' }}
+                        />
+                    </div>
                 </div>
             </Wrapper>
         </div>

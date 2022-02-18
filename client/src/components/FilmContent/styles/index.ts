@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const ContentWrapper = styled.div`
     display: flex;
     width: 100%;
-    height: 60vh;
+    height: 48vh;
     align-items: center;
 
     img {

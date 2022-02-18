@@ -2,18 +2,13 @@ import React from 'react';
 
 import { ContentWrapper, TextWrapper } from './styles/index';
 
-import Reviews from '../Reviews/Reviews';
-import { ICommentData } from '../../interfaces/index';
-
 interface IFilmContent {
     title: string;
     body: string;
     fullSizeLogo: string;
-    comments: ICommentData[];
-    setComments: React.Dispatch<React.SetStateAction<ICommentData[] | undefined>>;
 };
 
-const FilmContent: React.FC<IFilmContent> = ({ title, body, fullSizeLogo, comments, setComments }) => {
+const FilmContent: React.FC<IFilmContent> = ({ title, body, fullSizeLogo }) => {
     return (
         <div>
             <ContentWrapper>
@@ -24,11 +19,6 @@ const FilmContent: React.FC<IFilmContent> = ({ title, body, fullSizeLogo, commen
                     <h4>{body}</h4>
                 </TextWrapper>
             </ContentWrapper>
-
-            <Reviews 
-                comments={comments}
-                setComments={setComments}
-            />
         </div>
     );
 };

@@ -5,9 +5,9 @@ import { FilmTextWrapper, FilmWrapper } from './styles';
 import { IFilmData } from '../../interfaces';
 import FilmNotFound from '../FilmNotFound/FilmNotFound';
 
-const FilmItem: React.FC<IFilmData> = ({ title, body, logo, iviLink, reviewsLink, genre, filmMargin }) => {
+const FilmItem: React.FC<IFilmData> = ({ title, body, logo, iviLink, reviewsLink, genre, filmMargin, filmId }) => {
     return (
-        <Link to={'a'}>
+        <Link to={`/film-item/${filmId}`}>
             <FilmWrapper
                 margin={filmMargin}
             >

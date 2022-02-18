@@ -4,10 +4,14 @@ import { useFetchFilmData } from '../../hooks/filmData';
 import { useCreateComment } from '../../hooks/commentData';
 
 import Navbar from '../../components/Navbar/Navbar';
-
 import FilmContent from '../../components/FilmContent/FilmContent';
 import CommentInput from '../../components/UI/CommentInput/CommentInput';
 import StarsList from '../../components/StarsList/StarsList';
+import Reviews from '../../components/Reviews/Reviews';
+import Spinner from '../../components/Spinner/Spinner';
+
+import { ReviewBlockWrapper, SpinnerWrapper } from './styles/index';
+
 import { useFetchCommentsData } from '../../hooks/commentData';
 
 import { ICommentData } from '../../interfaces';
@@ -57,24 +61,44 @@ const FilmPage: React.FC = () => {
     return (
         <div>
             <Navbar />
-            <FilmContent
-                title={film?.title!}
-                body={film?.body!}
-                fullSizeLogo={film?.fullSizeLogo!}
-                comments={comments!}
-                setComments={setComments}
-            />
-            <CommentInput
-                value={inputValue}
-                onChange={setInputValue}
-                placeholder={'Напишите Ваш отзыв.'}
-                sendFunc={sendComment}
-            />
 
-            <StarsList
-                stars={stars}
-                setStars={setStars}
-            />
+            {
+                film
+                    ? 
+                    <div>
+                        <FilmContent
+                            title={film?.title!}
+                            body={film?.body!}
+                            fullSizeLogo={film?.fullSizeLogo!}
+                        />
+
+                        <ReviewBlockWrapper>
+                            <CommentInput
+                                value={inputValue}
+                                onChange={setInputValue}
+                                placeholder={'Напишите Ваш отзыв.'}
+                                sendFunc={sendComment}
+                            />
+
+                            <Reviews
+                                comments={comments!}
+                                setComments={setComments}
+                            />
+
+                            <StarsList
+                                stars={stars}
+                                setStars={setStars}
+                            />
+                        </ReviewBlockWrapper>
+                    </div>
+
+                    : 
+                    <div>
+                        <SpinnerWrapper>
+                            <Spinner />
+                        </SpinnerWrapper>
+                    </div>
+            }
         </div>
     );
 };

@@ -4,6 +4,8 @@ import ReviewItem from '../ReviewItem/ReviewItem';
 
 import { ICommentData } from '../../interfaces/index';
 
+import { ListWrapper } from './styles/index';
+
 interface IReviews {
     comments: ICommentData[];
     setComments: React.Dispatch<React.SetStateAction<ICommentData[] | undefined>>
@@ -11,7 +13,7 @@ interface IReviews {
 
 const Reviews: React.FC<IReviews> = ({ comments, setComments }) => {
     return (
-        <div>
+        <ListWrapper>
             {
                 comments?.map((comment, index) => {
                     return (
@@ -23,7 +25,7 @@ const Reviews: React.FC<IReviews> = ({ comments, setComments }) => {
                     );
                 })
             }
-        </div>
+        </ListWrapper>
     );
 };
 

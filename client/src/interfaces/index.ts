@@ -6,7 +6,7 @@ export interface IFilmData {
     genre: string;
     iviLink: string;
     reviewsLink: string;
-    fullSizeLogo: string;
+    fullSizeLogo?: string;
     rating?: number;
     realeseDate?: number;
     itemMargin?: string;
