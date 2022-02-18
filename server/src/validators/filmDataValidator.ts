@@ -2,8 +2,8 @@ import { Request, Response, NextFunction } from 'express'
 import Film from '../models/Film';
 
 export const validateIncomeData = (req: Request, res: Response, next: NextFunction): void | Response => {
-    const { title, body, logo } = req.body;
-    if (!title || !body || !logo) return res.json('There is now data.').status(403);
+    const { title, body, logo, iviLink, trailerLink, rating, realeseDate, fullSizeLogo } = req.body;
+    if (!title || !body || !logo || !iviLink || !trailerLink || !rating || !realeseDate || !fullSizeLogo) return res.json('There is now data.').status(403);
 
     next();
 };

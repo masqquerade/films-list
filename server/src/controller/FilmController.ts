@@ -2,7 +2,7 @@ import { Request, Response } from 'express';
 
 import FilmService from '../service/FilmService';
 
-import { Id } from '../types/filmTypes';
+import { Id } from '../types/id';
 import { FilmData } from '../interfaces/filmInterfaces';
 
 export default class FilmController {

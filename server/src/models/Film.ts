@@ -8,7 +8,6 @@ const Film = new Schema({
     trailerLink: String,
     rating: Number,
     realeseDate: Number,
-    genre: String,
     fullSizeLogo: String
 });
 

@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from 'express';
 import { ICommentData } from '../interfaces/CommentInterfaces';
 
-import { Id } from '../types/filmTypes';
+import { Id } from '../types/id';
 
 export const validateIncomeCommentData = (req: Request, res: Response, next: NextFunction): Response | void => {
     const { filmId, body }: ICommentData = req.body;

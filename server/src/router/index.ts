@@ -2,7 +2,7 @@ import { Router } from 'express';
 
 import { RouterWays } from '../enums/router';
 
-import { validateIdData, validateUpdateData } from '../validators/filmDataValidator';
+import { validateIdData, validateUpdateData, validateIncomeData } from '../validators/filmDataValidator';
 import { validateIncomeCommentData, validateCommentIdData } from '../validators/commentDataValidator';
 import fileMiddleware from '../middlewares/file-middleware';
 
@@ -11,7 +11,7 @@ import CommentController from '../controller/CommentController';
 
 const router = Router();
 
-router.post(RouterWays.createFilmItemUrl, <any>fileMiddleware.single('logo'), FilmController.createFilmItem);
+router.post(RouterWays.createFilmItemUrl, <any>fileMiddleware.single('logo'), validateIncomeData, FilmController.createFilmItem);
 router.delete(RouterWays.removeFilmItem, validateIdData, FilmController.deleteFilmItem);
 router.put(RouterWays.changeFilmData, validateIdData, validateUpdateData, FilmController.changeFilmData);
 
