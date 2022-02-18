@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const FilmWrapper = styled.div<{ margin: string }>`
     margin: ${props => props.margin};
+    text-decoration: none;
 
     img {
         border-left: 2px solid #2b6fc2;
@@ -15,6 +16,7 @@ export const FilmTextWrapper = styled.div`
     align-items: flex-start;
     width: 100%;
     flex-direction: column;
+    text-decoration: none;
     
     h3 {
         font-family: Montserrat;

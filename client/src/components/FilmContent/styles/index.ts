@@ -18,7 +18,7 @@ export const TextWrapper = styled.div`
     flex-direction: column;
     flex-wrap: wrap;
     margin-left: 2vw;
-    width: 30%;
+    width: 40vw;
     height: 45vh;
 
     h1 {

@@ -15,10 +15,6 @@ const Navbar: React.FC = () => {
             url: '/'
         },
         {
-            label: 'На пике',
-            url: '/peak'
-        },
-        {
             label: 'Опубликовать',
             url: '/publish'
         }

@@ -7,7 +7,7 @@ import FilmNotFound from '../FilmNotFound/FilmNotFound';
 
 const FilmItem: React.FC<IFilmData> = ({ title, body, logo, iviLink, reviewsLink, genre, filmMargin, filmId }) => {
     return (
-        <Link to={`/film-item/${filmId}`}>
+        <Link to={`/film-item/${filmId}`} style={{ textDecoration: 'none' }}>
             <FilmWrapper
                 margin={filmMargin}
             >
