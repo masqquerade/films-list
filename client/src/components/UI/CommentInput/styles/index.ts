@@ -18,7 +18,7 @@ export const CommentInputWrapper = styled.textarea`
     ::-webkit-scrollbar-thumb {
         border-radius: 3px;
         background: #1f1f1f;
-    }
+    };
 `;
 
 export const Wrapper = styled.div`

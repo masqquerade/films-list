@@ -5,7 +5,7 @@ const Film = new Schema({
     body: { type: String, required: true },
     logo: { type: String },
     iviLink: String,
-    reviewsLink: String,
+    trailerLink: String,
     rating: Number,
     realeseDate: Number,
     genre: String,

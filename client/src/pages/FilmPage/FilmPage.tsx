@@ -79,6 +79,8 @@ const FilmPage: React.FC = () => {
                             title={film?.title!}
                             body={film?.body!}
                             fullSizeLogo={film?.fullSizeLogo!}
+                            trailerLink={film?.trailerLink}
+                            iviLink={film?.iviLink}
                         />
 
                         <ReviewBlockWrapper>

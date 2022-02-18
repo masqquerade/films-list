@@ -20,25 +20,21 @@ export const useFetchFilmsData = () => {
     return { films, setFilms };
 };
 
-export const useCreateFilmItem = ({ title, body, logo, iviLink, reviewsLink, fullSizeLogo }: IFilmData): any => {
-    const createFilmItem = useCallback(async (): Promise<void> => {
-        const file = new FormData();
+export const useCreateFilmItem = async ({ title, body, logo, iviLink, trailerLink, fullSizeLogo }: IFilmData): Promise<void> => {
+    const file = new FormData();
 
-        file.append('title', title);
-        file.append('body', body);
-        file.append('logo', logo);
-        file.append('iviLink', iviLink);
-        file.append('reviewsLink', reviewsLink);
-        file.append('fullSizeLogo', fullSizeLogo);
+    file.append('title', title);
+    file.append('body', body);
+    file.append('logo', logo);
+    file.append('iviLink', iviLink);
+    file.append('trailerLink', trailerLink);
+    file.append('fullSizeLogo', fullSizeLogo!);
 
-        await axios.post('api/create-film-item', file, {
-            headers: {
-                'content-type': 'mulpipart/form-data'
-            }
-        });
-    }, []);
-
-    return createFilmItem;
+    await axios.post('api/create-film-item', file, {
+        headers: {
+            'content-type': 'mulpipart/form-data'
+        }
+    });
 };
 
 export const useFetchFilmData = (_id: string) => {
