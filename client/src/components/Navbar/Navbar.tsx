@@ -19,8 +19,8 @@ const Navbar: React.FC = () => {
             url: '/peak'
         },
         {
-            label: 'Лучшее',
-            url: '/best'
+            label: 'Опубликовать',
+            url: '/publish'
         }
     ]);
 
