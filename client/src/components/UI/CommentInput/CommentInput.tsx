@@ -15,7 +15,8 @@ const CommentInput: React.FC<ICommentInput> = ({ value, onChange, placeholder, s
         <div>
             <Wrapper>
                 <CommentInputWrapper
-                    onChange={onChange}
+                    onChange={(e) => onChange(e.target.value)}
+                    value={value}
                     placeholder={placeholder}
                 />
                 <div

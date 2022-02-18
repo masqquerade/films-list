@@ -45,16 +45,25 @@ const FilmPage: React.FC = () => {
     const { comments, setComments } = useFetchCommentsData(id!);
     const film = useFetchFilmData(id!);
 
-    const sendComment = (body: any) => {
+    const sendComment = (body: string) => {
         const starsCount = stars.filter(el => el.isFixed).length;
         const data: ICommentData = {
-            body: body.target.value,
+            body: body,
             filmId: id!,
             stars: starsCount
         };
 
         useCreateComment(data);
 
+        setStars(() => {
+            return stars.map(el => {
+                el.isFixed = false;
+                el.isOn = false;
+                return el;
+            });
+        });
+
+        setInputValue('');
         setComments([...comments!, data]);
     };
 
@@ -64,7 +73,7 @@ const FilmPage: React.FC = () => {
 
             {
                 film
-                    ? 
+                    ?
                     <div>
                         <FilmContent
                             title={film?.title!}
@@ -80,19 +89,19 @@ const FilmPage: React.FC = () => {
                                 sendFunc={sendComment}
                             />
 
-                            <Reviews
-                                comments={comments!}
-                                setComments={setComments}
-                            />
-
                             <StarsList
                                 stars={stars}
                                 setStars={setStars}
                             />
+
+                            <Reviews
+                                comments={comments!}
+                                setComments={setComments}
+                            />
                         </ReviewBlockWrapper>
                     </div>
 
-                    : 
+                    :
                     <div>
                         <SpinnerWrapper>
                             <Spinner />
