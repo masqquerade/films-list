@@ -4,6 +4,7 @@ import { FilterWrapper, TitleWrapper } from './styles';
 
 import { IFilmData } from '../../interfaces/index';
 import SortSelect from '../UI/SortSelect/SortSelect';
+import SortSwitcher from '../SortSwitcher/SortSwitcher';
 
 interface IFilter {
     films: IFilmData[] | undefined;
@@ -16,8 +17,8 @@ export interface IOption {
 };
 
 const Filter: React.FC<IFilter> = ({ films, setFilms }) => {
-    console.log(films)
     const [sort, setSort] = useState<string>();
+    const [sortMethod, setSortMethod] = useState(false);
     const [sortTypes, setSortTypes] = useState<IOption[]>([
         {
             value: 'rating',
@@ -34,16 +35,8 @@ const Filter: React.FC<IFilter> = ({ films, setFilms }) => {
     };
 
     useEffect(() => {
-        let isMounter = true;
-        try {
-            if (isMounter) {
-                setFilms([...films!].sort((a, b) => (a[sort!]) - (b[sort!])))
-            }
-        } catch (e) {
-            console.log(e)
-        }
-        return () => { isMounter = false }
-    }, [sort])
+        setFilms([...films!].sort((a, b) => sortMethod ? (a[sort!]) - (b[sort!]) : (b[sort!]) - (a[sort!])));
+    }, [sort, sortMethod]);
 
     return (
         <FilterWrapper>
@@ -55,6 +48,9 @@ const Filter: React.FC<IFilter> = ({ films, setFilms }) => {
                 options={sortTypes} 
                 value={sort!} 
                 onChange={filter} 
+            />
+            <SortSwitcher 
+                setSortMethod={setSortMethod}
             />
         </FilterWrapper>
     );
