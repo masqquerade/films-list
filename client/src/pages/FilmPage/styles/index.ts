@@ -20,3 +20,10 @@ export const DataWrapper = styled.div`
     justify-content: center;
     align-items: center;
 `;
+
+export const Wrapper = styled.div`
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+`;

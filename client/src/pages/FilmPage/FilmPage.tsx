@@ -10,7 +10,7 @@ import StarsList from '../../components/StarsList/StarsList';
 import Reviews from '../../components/Reviews/Reviews';
 import Spinner from '../../components/Spinner/Spinner';
 
-import { ReviewBlockWrapper, SpinnerWrapper, DataWrapper } from './styles/index';
+import { ReviewBlockWrapper, SpinnerWrapper, Wrapper } from './styles/index';
 
 import { useFetchCommentsData } from '../../hooks/commentData';
 
@@ -74,7 +74,7 @@ const FilmPage: React.FC = () => {
             {
                 film
                     ?
-                    <div style={{ display: 'flex', justifyContent:'space-between' }}>
+                    <Wrapper>
                         <FilmContent
                             title={film?.title!}
                             body={film?.body!}
@@ -101,7 +101,7 @@ const FilmPage: React.FC = () => {
                                 setComments={setComments}
                             />
                         </ReviewBlockWrapper>
-                    </div>
+                    </Wrapper>
 
                     :
                     <div>
