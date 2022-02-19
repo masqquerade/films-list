@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const ReviewBlockWrapper = styled.div`
-    margin: 1.3vh 3vw 0 0;
+    margin: 1.5vh 3vw 0 0;
 `;
 
 export const SpinnerWrapper = styled.div`

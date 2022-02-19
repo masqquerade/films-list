@@ -6,16 +6,16 @@ import FilmItemButton from '../UI/FilmItemBtn/FilmItemBtn';
 interface IFilmContent {
     title: string;
     body: string;
-    fullSizeLogo: string;
+    logo: string;
     trailerLink: string;
     iviLink: string;
 };
 
-const FilmContent: React.FC<IFilmContent> = ({ title, body, fullSizeLogo, trailerLink, iviLink }) => {
+const FilmContent: React.FC<IFilmContent> = ({ title, body, logo, trailerLink, iviLink }) => {
     return (
         <div>
             <ContentWrapper>
-                <img src={`http://localhost:5000/${fullSizeLogo}`} />
+                <img src={`http://localhost:5000/${logo}`} />
 
                 <TextWrapper>
                     <h1>{title}</h1>

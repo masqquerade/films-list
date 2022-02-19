@@ -6,7 +6,6 @@ export interface IFilmData {
     genre: string;
     iviLink: string;
     trailerLink: string;
-    fullSizeLogo?: string;
     rating?: number;
     realeseDate?: number;
     itemMargin?: string;

@@ -7,8 +7,7 @@ const Film = new Schema({
     iviLink: String,
     trailerLink: String,
     rating: Number,
-    realeseDate: Number,
-    fullSizeLogo: String
+    realeseDate: Number
 });
 
 export default model('Film', Film);

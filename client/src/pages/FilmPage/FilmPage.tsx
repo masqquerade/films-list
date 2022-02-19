@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useFetchFilmData } from '../../hooks/filmData';
-import { useCreateComment } from '../../hooks/commentData';
+import { createComment } from '../../dataTransfer/commentData';
 
 import Navbar from '../../components/Navbar/Navbar';
 import FilmContent from '../../components/FilmContent/FilmContent';
@@ -53,7 +53,7 @@ const FilmPage: React.FC = () => {
             stars: starsCount
         };
 
-        useCreateComment(data);
+        createComment(data);
 
         setStars(() => {
             return stars.map(el => {
@@ -78,7 +78,7 @@ const FilmPage: React.FC = () => {
                         <FilmContent
                             title={film?.title!}
                             body={film?.body!}
-                            fullSizeLogo={film?.fullSizeLogo!}
+                            logo={film?.logo!}
                             trailerLink={film?.trailerLink}
                             iviLink={film?.iviLink}
                         />
