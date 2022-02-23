@@ -8,7 +8,7 @@ import SortSwitcher from '../SortSwitcher/SortSwitcher';
 
 interface IFilter {
     films: IFilmData[] | undefined;
-    setFilms: React.Dispatch<SetStateAction<any>>
+    setFilms: React.Dispatch<SetStateAction<IFilmData[]>>
 };
 
 export interface IOption {
