@@ -13,10 +13,6 @@ const Navbar: React.FC = () => {
         {
             label: 'Главная',
             url: '/'
-        },
-        {
-            label: 'Опубликовать',
-            url: '/publish'
         }
     ]);
 
